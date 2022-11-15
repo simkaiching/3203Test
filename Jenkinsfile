@@ -1,14 +1,14 @@
 pipeline {
 	agent {
 		docker {
-			image 'composer:latest' 
+			image 'node:lts-bullseye-slim' 
             		args '-p 3000:3000'
 		}
 	}
 	stages {
 		stage('Build') {
 			steps {
-				sh 'composer install'
+				sh 'npm install'
 			}
 		}
 		stage('Test') {
